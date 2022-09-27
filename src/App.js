@@ -1,8 +1,9 @@
-import {Emoji} from "./icons"
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <div className="text-5xl flex justify-center items-center h-screen">
-      <Emoji color = "red"/>
+    <div className="bg-bg h-screen w-full">
+      <Navbar/>
     </div>
   );
 }
