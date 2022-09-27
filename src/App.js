@@ -1,7 +1,8 @@
+import {Emoji} from "./icons"
 function App() {
   return (
-    <div>
-      Selam
+    <div className="text-5xl flex justify-center items-center h-screen">
+      <Emoji color = "red"/>
     </div>
   );
 }
