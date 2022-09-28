@@ -4,7 +4,7 @@ import { Arrow } from "../icons"
 
 function Stories() {
   return (
-    <div className='w-[480px] flex items-center bg-black p-5 py-6 rounded-lg border border-zinc-800 mt-7'>
+    <div className='w-auto flex items-center bg-black p-5 py-6 rounded-lg border border-zinc-800 mt-7'>
 
       {Users.map((user) => {
         return (
