@@ -3,10 +3,10 @@ import { LogoInstagram, Arrow, Search, Home, Message, PlusSquare, Compass, Heart
 
 function Navbar() {
     return (
-        <div className='w-full flex justify-around bg-black py-3'>
+        <div className='w-full flex items-center justify-between px-4 bg-black py-5'>
 
             <div className='flex items-center gap-2 cursor-pointer'>
-                <LogoInstagram color="#fff" className='text-4xl' />
+                <LogoInstagram color="#fff" className='text-3xl' />
                 <Arrow color="#ffff" className='-rotate-90' />
             </div>
 
@@ -21,7 +21,7 @@ function Navbar() {
                 <PlusSquare className="link-icon"/>
                 <Compass className="link-icon"/>
                 <Heart className="link-icon"/>
-                <img src='Images/ProfilePhotos/ppfoto1.jpg' className='w-8 rounded-full'/>
+                <img src='Images/ProfilePhotos/images7.jpg' alt='ppPhoto' className='w-8 rounded-full'/>
             </div>
 
         </div>
