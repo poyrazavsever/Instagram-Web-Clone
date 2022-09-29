@@ -3,7 +3,7 @@ import { LogoInstagram, Arrow, Search, Home, Message, PlusSquare, Compass, Heart
 
 function Navbar() {
     return (
-        <div className='w-full px-4 bg-black py-4 border-b border-border'>
+        <div className='w-full px-4 bg-black py-4 border-b border-zinc-800'>
             <div className='w-full md:w-8/12 lg:w-1/2 mx-auto flex items-center justify-between gap-12'>
                 <div className='flex items-center justify-center gap-2 cursor-pointer'>
                     <LogoInstagram color="#fff" className='text-3xl' />

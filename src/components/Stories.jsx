@@ -24,7 +24,7 @@ function Stories() {
 
 
   return (
-    <div className='flex w-2/3 sm:w-[480px] items-center bg-black p-5 py-6 rounded-lg border border-zinc-800'>
+    <div className='flex w-2/3 sm:w-[500px] items-center bg-black p-5 py-6 rounded-lg border border-zinc-800'>
 
       <ul ref={ulRef} className='flex flex-nowrap scroll-smooth overflow-x-hidden'>
 
