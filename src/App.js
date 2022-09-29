@@ -1,16 +1,20 @@
-import Navbar from "./components/Navbar";
-import Stories from "./components/Stories";
-import Contents from "./components/Contents";
+import {Routes, Route} from "react-router-dom"
+import {routes}  from "./routes"
 
 function App() {
   return (
-    <div className="bg-bg h-screen flex flex-col items-center gap-12">
+    <div className="w-full">
 
-      <Navbar/>
+      <Routes>
+        {routes.map((route) => {
+          return (
+            <Route key={route.name} exact= {route.exact} path={route.path} element={<route.component />} />
+          )
+          
+        })} 
+      </Routes>
 
-      <Stories />
-
-      <Contents />
+     
 
     </div>
   );
