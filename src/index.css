@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 
+@layer base {
+    html, body, #root {
+        @apply h-full;
+    }
+}
+
+
 @layer components {
     .link-icon {
         @apply text-white text-2xl sm:text-3xl;
