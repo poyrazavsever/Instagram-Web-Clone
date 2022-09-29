@@ -7,25 +7,26 @@ function Stories() {
 
   const ulRef = useRef();
   const btnRef = useRef();
-
+  
   useEffect(() => {
-    const element = ulRef.current;
+    const ulElement = ulRef.current;
     const btnElement = btnRef.current;
-    element.addEventListener("wheel", (e) => {
+    ulElement.addEventListener("wheel", (e) => {
       e.preventDefault()
-      element.scrollLeft += e.deltaY
+      ulElement.scrollLeft += e.deltaY
     })
 
     btnElement.addEventListener("click", (e) => {
       e.preventDefault()
-      btnElement.scrollLeft += e.deltaY
+      ulElement.scrollLeft += 200;
     })
   }) 
 
-  return (
-    <div className='flex w-2/3 sm:w-[480px] items-center bg-black p-5 py-6 rounded-lg border border-zinc-800 mt-7'>
 
-      <ul ref={ulRef} className='flex flex-nowrap transition-all duration-200 overflow-x-hidden'>
+  return (
+    <div className='flex w-2/3 sm:w-[480px] items-center bg-black p-5 py-6 rounded-lg border border-zinc-800'>
+
+      <ul ref={ulRef} className='flex flex-nowrap scroll-smooth overflow-x-hidden'>
 
         {Users.map((user, index) => {
           return (
