@@ -8,7 +8,6 @@ module.exports = {
       colors : {
         bg : "#121212",
         search: "#262626",
-        border: "#363636",
       },
     },
   },
