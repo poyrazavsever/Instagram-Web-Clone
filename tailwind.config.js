@@ -7,7 +7,8 @@ module.exports = {
     extend: {
       colors : {
         bg : "#121212",
-        search: "#262626"
+        search: "#262626",
+        border: "#363636",
       },
     },
   },
