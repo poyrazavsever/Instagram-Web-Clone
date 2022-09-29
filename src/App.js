@@ -6,7 +6,7 @@ function App() {
     <div className="bg-bg h-screen flex flex-col items-center">
 
       <Navbar/>
-    
+
       <Stories />
 
     </div>

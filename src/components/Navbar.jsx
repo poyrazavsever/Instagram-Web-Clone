@@ -11,8 +11,8 @@ function Navbar() {
             </div>
 
             <div className = "relative hidden sm:block">
-                <input type="text" className='border-none outline-none text-lg text-white bg-search p-2 rounded-md pl-10 placeholder:text-zinc-600' placeholder='Ara'/>
-                <Search className="absolute text-xl text-zinc-600 top-[12px] left-2" />
+                <input type="text" className='border-none outline-none text-xs text-white bg-search p-2 rounded-md pl-10 placeholder:text-sm placeholder:text-zinc-600' placeholder='Ara'/>
+                <Search className="absolute text-base text-zinc-600 top-[9px] left-3" />
             </div>
 
             <div className='flex items-center gap-5'>
