@@ -8,6 +8,9 @@ module.exports = {
       colors : {
         bg : "#121212",
         search: "#262626",
+        btn:"#0095f6",
+        facebook:"#385185",
+        link:"#00376b",
       },
 
       backgroundImage: {
