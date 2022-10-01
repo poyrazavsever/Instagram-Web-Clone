@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar"
 
 function Home() {
     return (
-        <div className='bg-bg h-screen flex flex-col items-center gap-12'>
+        <div className='bg-bg w-full h-screen flex flex-col items-center gap-12'>
 
             <Navbar/>    
 
