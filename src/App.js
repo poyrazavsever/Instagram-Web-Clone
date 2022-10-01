@@ -3,7 +3,7 @@ import {routes}  from "./routes"
 
 function App() {
   return (
-    <div className="w-full">
+    <div className="w-full h-screen">
 
       <Routes>
         {routes.map((route) => {
