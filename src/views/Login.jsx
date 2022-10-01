@@ -16,17 +16,9 @@ function Login() {
 			total = images.length,
 			current = 0
 		const imageSlider = () => {
-			if (current > 0) {
-				images[current - 1].classList.add('opacity-0')
-			} else {
-				images[total - 1].classList.add('opacity-0')
-			}
-			images[current].classList.remove('opacity-0')
-			if (current === total - 1) {
-				current = 0
-			} else {
-				current += 1
-			}
+			images[(current > 0 ? current : total) - 1].classList.add("opacity-0");
+			images[current].classList.remove("opacity-0");
+			current = current === total - 1 ? 0 : current + 1;
 		}
 		imageSlider()
 		let interval = setInterval(imageSlider, 3000)
