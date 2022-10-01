@@ -65,7 +65,7 @@ function Login() {
 
 					<form className='grid gap-y-3'>
 
-						<Input value={email} onChange={e => setEmail(e.target.value)} type="email" label="Email" />
+						<Input value={email} onChange={e => setEmail(e.target.value)} type="text" label="Email" />
 
 						<Input value={password} onChange={e => setPassword(e.target.value)} type="password" label="Password" />
 
@@ -90,7 +90,7 @@ function Login() {
 				</div>
 
 				<div className='bg-white border p-4 text-center text-sm'>
-					Don't have an account? <a href='#' className='font-semibold text-btn'>Sign up</a> 
+					Don't have an account? <a href='/login' className='font-semibold text-btn'>Sign up</a> 
 				</div>
 			</div>
 
