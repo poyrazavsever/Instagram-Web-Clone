@@ -123,3 +123,11 @@ export function Search(props) {
     <svg width="1em" height="1em" viewBox="0 0 32 32" {...props}><path fill="currentColor" d="m29 27.586l-7.552-7.552a11.018 11.018 0 1 0-1.414 1.414L27.586 29ZM4 13a9 9 0 1 1 9 9a9.01 9.01 0 0 1-9-9Z"></path></svg>
   )
 }
+
+
+
+export function FaFacebookOfficial(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 1536 1536" {...props}><path fill="currentColor" d="M1451 0q35 0 60 25t25 60v1366q0 35-25 60t-60 25h-391V941h199l30-232h-229V561q0-56 23.5-84t91.5-28l122-1V241q-63-9-178-9q-136 0-217.5 80T820 538v171H620v232h200v595H85q-35 0-60-25t-25-60V85q0-35 25-60T85 0h1366z"></path></svg>
+  )
+}
