@@ -33,7 +33,7 @@ function Login() {
 
 	const handleSubmit = async (values, actions) => {
 		
-		await login(...values)
+		await login(values.username, values.password)
 
 		navigate(location.state?.return_url || "/", {
 			replace: true
@@ -75,16 +75,17 @@ function Login() {
 						}}
 						onSubmit={handleSubmit}
 					>
-						{({ isSubmitting, values }) => (
+						{({ isSubmitting, isValid, dirty, values }) => (
 							<Form className='grid gap-y-3'>
-
-								<pre>{JSON.stringify(values, null, 2)}</pre>
 
 								<Input name="username" label="Username, email or phone" />
 
 								<Input type="password" name="password" label="Password" />
 
-								<button type='submit' className='h-[30px] mt-1 font-medium disabled:opacity-30 transition-all bg-btn text-white rounded-sm'>Log In</button>
+								<button 
+								type='submit' 
+								disabled={!isValid || !dirty || isSubmitting}
+								className='h-[30px] mt-1 font-medium disabled:opacity-30 transition-all bg-btn text-white rounded-sm' >Log In</button>
 
 								<div className='flex items-center pt-2 my-2'>
 									<div className='h-px bg-gray-300 flex-1'></div>
