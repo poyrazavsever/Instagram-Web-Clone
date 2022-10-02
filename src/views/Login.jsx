@@ -40,22 +40,22 @@ function Login() {
 		})
 	}
 
+	const images = [
+		"https://www.instagram.com/static/images/homepage/screenshots/screenshot1.png/fdfe239b7c9f.png",
+		"https://www.instagram.com/static/images/homepage/screenshots/screenshot2.png/4d62acb667fb.png",
+		"https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png",
+		"https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png"
+	]
+
 	return (
 		<div className='h-full w-full flex flex-wrap overflow-auto gap-x-8 items-center justify-center'>
 
 			<div className='w-[380px] hidden md:block bg-logo-pattern relative h-[581px] bg-[lenght:468.32px_634.15px] bg-[top_left_-46px]'>
 				<div className='w-[250px] h-[538px] absolute top-[27px] right-[18px]' ref={ref}>
 
-					<img className='w-full h-full absolute top-0 left-0 opacity-0 transition-opacity ease-linear duration-500' src="https://www.instagram.com/static/images/homepage/screenshots/screenshot1.png/fdfe239b7c9f.png" alt="photo1" />
-
-					<img className='w-full h-full absolute top-0 left-0 opacity-0 transition-opacity ease-linear duration-500' src="https://www.instagram.com/static/images/homepage/screenshots/screenshot2.png/4d62acb667fb.png" alt="photo1" />
-
-					<img className='w-full h-full absolute top-0 left-0 opacity-0 transition-opacity ease-linear duration-500' src="https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png" alt="photo1" />
-
-					<img className='w-full h-full absolute top-0 left-0 opacity-0 transition-opacity ease-linear duration-500' src="https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png" alt="photo1" />
-
-
-
+					{images.map((image, key) => (
+						<img key={key} className='w-full h-full absolute top-0 left-0 opacity-0 transition-opacity ease-linear duration-500' src={image} alt="photoPhone" />
+					))}
 
 				</div>
 			</div>
