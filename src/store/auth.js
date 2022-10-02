@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 import { act } from "react-dom/test-utils";
 
 const initialState = {
-    user:false
+    user: false
 }
 
 const auth = createSlice({

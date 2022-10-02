@@ -1,13 +1,20 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { LogoInstagram, FaFacebookOfficial } from "../icons"
 import Input from "../components/Input"
+// import {setUser} from "../store/auth"
+import {useNavigate, useLocation} from "react-router-dom"
+import {login} from "../firebase"
 
 function Login() {
 
-	const [email, setEmail] = useState()
+	const [username, setUsername] = useState()
 	const [password, setPassword] = useState()
 
-	const enable = email && password
+	const navigate = useNavigate()
+	const location = useLocation()
+
+
+	const enable = username && password
 
 	const ref = useRef()
 
@@ -27,6 +34,16 @@ function Login() {
 		}
 	}, [ref])
 
+ 
+	const handleSubmit = async (e) => {
+
+		e.preventDefault()
+		await login(username, password)
+
+		navigate(location.state?.return_url || "/" , {
+			replace: true
+		})
+	}
 
 	return (
 		<div className='h-full w-full flex flex-wrap overflow-auto gap-x-8 items-center justify-center'>
@@ -55,9 +72,9 @@ function Login() {
 						<LogoInstagram className="text-5xl" />
 					</a>
 
-					<form className='grid gap-y-3'>
+					<form onSubmit={handleSubmit} className='grid gap-y-3'>
 
-						<Input value={email} onChange={e => setEmail(e.target.value)} type="text" label="Email" />
+						<Input value={username} onChange={e => setUsername(e.target.value)} type="text" label="Username, email or phone" />
 
 						<Input value={password} onChange={e => setPassword(e.target.value)} type="password" label="Password" />
 
