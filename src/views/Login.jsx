@@ -1,20 +1,16 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { LogoInstagram, FaFacebookOfficial } from "../icons"
 import Input from "../components/Input"
-// import {setUser} from "../store/auth"
-import {useNavigate, useLocation} from "react-router-dom"
-import {login} from "../firebase"
+import { useNavigate, useLocation } from "react-router-dom"
+import { login } from "../firebase"
+import { Formik, Form } from "formik"
+import {LoginSchema} from "../validation"
+
 
 function Login() {
 
-	const [username, setUsername] = useState()
-	const [password, setPassword] = useState()
-
 	const navigate = useNavigate()
 	const location = useLocation()
-
-
-	const enable = username && password
 
 	const ref = useRef()
 
@@ -34,13 +30,12 @@ function Login() {
 		}
 	}, [ref])
 
- 
-	const handleSubmit = async (e) => {
 
-		e.preventDefault()
-		await login(username, password)
+	const handleSubmit = async (values, actions) => {
+		
+		await login(...values)
 
-		navigate(location.state?.return_url || "/" , {
+		navigate(location.state?.return_url || "/", {
 			replace: true
 		})
 	}
@@ -72,38 +67,52 @@ function Login() {
 						<LogoInstagram className="text-5xl" />
 					</a>
 
-					<form onSubmit={handleSubmit} className='grid gap-y-3'>
+					<Formik
+						validationSchema={LoginSchema}
+						initialValues={{
+							username: "",
+							password: ""
+						}}
+						onSubmit={handleSubmit}
+					>
+						{({ isSubmitting, values }) => (
+							<Form className='grid gap-y-3'>
 
-						<Input value={username} onChange={e => setUsername(e.target.value)} type="text" label="Username, email or phone" />
+								<pre>{JSON.stringify(values, null, 2)}</pre>
 
-						<Input value={password} onChange={e => setPassword(e.target.value)} type="password" label="Password" />
+								<Input name="username" label="Username, email or phone" />
 
-						<button type='submit' disabled={!enable} className='h-[30px] mt-1 font-medium disabled:opacity-30 transition-all bg-btn text-white rounded-sm'>Log In</button>
+								<Input type="password" name="password" label="Password" />
 
-						<div className='flex items-center pt-2 my-2'>
-							<div className='h-px bg-gray-300 flex-1'></div>
-							<span className='px-4 text-[13px] text-gray-500 font-medium'>OR</span>
-							<div className='h-px bg-gray-300 flex-1'></div>
-						</div>
+								<button type='submit' className='h-[30px] mt-1 font-medium disabled:opacity-30 transition-all bg-btn text-white rounded-sm'>Log In</button>
+
+								<div className='flex items-center pt-2 my-2'>
+									<div className='h-px bg-gray-300 flex-1'></div>
+									<span className='px-4 text-[13px] text-gray-500 font-medium'>OR</span>
+									<div className='h-px bg-gray-300 flex-1'></div>
+								</div>
 
 
-						<div className='text-facebook mt-4 justify-center font-semibold flex items-center gap-2'>
-							<FaFacebookOfficial className="text-lg" color="#385185" />
-							Log in with Facebook
-						</div>
+								<div className='text-facebook mt-4 justify-center font-semibold flex items-center gap-2'>
+									<FaFacebookOfficial className="text-lg" color="#385185" />
+									Log in with Facebook
+								</div>
 
-						<a href="/login" className='text-link flex justify-center items-center text-xs'>Forgot password?</a>
+								<a href="/login" className='text-link flex justify-center items-center text-xs'>Forgot password?</a>
 
-					</form>
+							</Form>
+						)}
+
+					</Formik>
 
 				</div>
 
 				<div className='bg-white border p-4 text-center text-sm'>
-					Don't have an account? <a href='/login' className='font-semibold text-btn'>Sign up</a> 
+					Don't have an account? <a href='/login' className='font-semibold text-btn'>Sign up</a>
 				</div>
 			</div>
 
-			
+
 
 
 
