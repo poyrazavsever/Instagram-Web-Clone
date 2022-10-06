@@ -1,16 +1,19 @@
 import React, { useRef, useEffect } from 'react'
-import { LogoInstagram, FaFacebookOfficial } from "../icons"
-import Input from "../components/Input"
-import { useNavigate, useLocation } from "react-router-dom"
-import { login } from "../firebase"
+import { LogoInstagram, FaFacebookOfficial } from "../../icons"
+import Input from "../../components/Input"
+import { Navigate, useLocation, Link } from "react-router-dom"
+import { login } from "../../firebase"
 import { Formik, Form } from "formik"
-import {LoginSchema} from "../validation"
+import {LoginSchema} from "../../validation/login-schema"
+import Button from '../../components/Button'
+import Separator from '../../components/Separator'
+import { useSelector } from 'react-redux'
 
 
 function Login() {
 
-	const navigate = useNavigate()
 	const location = useLocation()
+	const user = useSelector(state => state.auth.user)
 
 	const ref = useRef()
 
@@ -30,14 +33,9 @@ function Login() {
 		}
 	}, [ref])
 
-
 	const handleSubmit = async (values, actions) => {
-		
 		await login(values.username, values.password)
-
-		navigate(location.state?.return_url || "/", {
-			replace: true
-		})
+		
 	}
 
 	const images = [
@@ -46,6 +44,12 @@ function Login() {
 		"https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png",
 		"https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png"
 	]
+
+	
+	if(user) {
+		return <Navigate to={location.state?.return_url || "/"} replace={true} />
+	}
+
 
 	return (
 		<div className='h-full w-full flex flex-wrap overflow-auto gap-x-8 items-center justify-center'>
@@ -82,16 +86,9 @@ function Login() {
 
 								<Input type="password" name="password" label="Password" />
 
-								<button 
-								type='submit' 
-								disabled={!isValid || !dirty || isSubmitting}
-								className='h-[30px] mt-1 font-medium disabled:opacity-30 transition-all bg-btn text-white rounded-sm' >Log In</button>
+								<Button type='submit' disabled={!isValid || !dirty || isSubmitting}>Log In</Button>
 
-								<div className='flex items-center pt-2 my-2'>
-									<div className='h-px bg-gray-300 flex-1'></div>
-									<span className='px-4 text-[13px] text-gray-500 font-medium'>OR</span>
-									<div className='h-px bg-gray-300 flex-1'></div>
-								</div>
+								<Separator />
 
 
 								<div className='text-facebook mt-4 justify-center font-semibold flex items-center gap-2'>
@@ -109,7 +106,7 @@ function Login() {
 				</div>
 
 				<div className='bg-white border p-4 text-center text-sm'>
-					Don't have an account? <a href='/login' className='font-semibold text-btn'>Sign up</a>
+					Don't have an account? <Link to='/auth/register' className='font-semibold text-btn'>Sign up</Link>
 				</div>
 			</div>
 
