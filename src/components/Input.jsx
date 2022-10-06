@@ -22,7 +22,7 @@ function Input({ label, type = "text", ...props }) {
         <label className='relative flex bg-zinc-100 border rounded-sm focus-within:border-gray-400'>
 
             <input type={inputType} className={classNames({
-                "h-[38px] text-xs outline-none w-full cursor-text  px-2" : true,
+                "h-[38px] text-xs outline-none w-full cursor-text bg-transparent  px-2" : true,
                 "pt-[10px]" : field.value
             })} {...field} {...props} />
 
@@ -33,7 +33,7 @@ function Input({ label, type = "text", ...props }) {
             })}>{label}</small>
 
             {type === "password" && field?.value && (
-                <div onClick={() => setShow(show => !show)} className='cursor-pointer select-none font-semibold bg-zinc-50 text-sm mr-3 flex items-center'>
+                <div onClick={() => setShow(show => !show)} className='cursor-pointer select-none font-semibold text-sm mr-3 flex items-center'>
                     {show ? "Hide" : "Show"}
                 </div>
             )}
