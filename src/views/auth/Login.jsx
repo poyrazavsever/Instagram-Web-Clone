@@ -15,7 +15,6 @@ function Login() {
 
 	const location = useLocation()
 	const user = useSelector(state => state.auth.user)
-
 	const ref = useRef()
 
 	useEffect(() => {
@@ -36,7 +35,6 @@ function Login() {
 
 	const handleSubmit = async (values, actions) => {
 		await login(values.username, values.password)
-
 	}
 
 	const images = [

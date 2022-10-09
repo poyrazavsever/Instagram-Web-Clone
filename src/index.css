@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 
+
 @layer base {
     html, body, #root {
-        @apply h-full;
+        @apply h-full bg-[#fafafa];
     }
 }
 

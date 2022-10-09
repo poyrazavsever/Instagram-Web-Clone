@@ -8,6 +8,10 @@ import Register from "./views/auth/Register"
 import AuthLayout from "./views/auth/"
 import PrivateRoute from "./components/PrivateRoute"
 import Logout from "./views/logout"
+import SettingsLayout from "./views/settings/index"
+import Edit from "./views/settings/edit"
+import PasswordChange from "./views/settings/passwordChange"
+
 
 export const routes = [{
 
@@ -19,6 +23,22 @@ export const routes = [{
                 index:true,
                 element: <Home />
             },
+            
+            {
+                path:"/settings",
+                element: <SettingsLayout />,
+                children : [
+                    {
+                        path:"edit",
+                        element: <Edit />
+                    },
+                    {
+                        path:"password_change",
+                        element: <PasswordChange />
+                    }
+                ]
+            },
+
             {
                 path:"logout",
                 element: <Logout />
@@ -43,17 +63,18 @@ export const routes = [{
     {
         path: "/auth",
         element: < AuthLayout /> ,
-        children: [{
+        children: [
+            {
                 path: 'login',
                 element: < Login />
             },
             {
                 path: "register",
                 element: < Register />
-            }
+            },
+        
         ]
     },
-
 ]
 
 
