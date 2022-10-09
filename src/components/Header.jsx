@@ -4,9 +4,13 @@ import { Link, NavLink } from "react-router-dom"
 import SearchBox from "./Search"
 import { logout } from '../firebase'
 import { Home, Message, PlusSquare, Compass, Heart } from "../icons"
+import { useSelector } from 'react-redux'
 
 
 function Header() {
+
+    const user = useSelector(state => state.auth.user)
+
     return (
         <header className=' bg-white border-b border-gray-300 '>
 
@@ -40,10 +44,10 @@ function Header() {
                         <Heart />
                     </NavLink>
 
-                    <button onClick={logout}>
+                    <NavLink to={`/${user.username}`}>
                         <img src="Images/ProfilePhotos/noavatar.jpg" alt="ppPhoto" 
                         className='w-6 h-6 rounded-full'/>
-                    </button>
+                    </NavLink>
                     
                 </nav>
 

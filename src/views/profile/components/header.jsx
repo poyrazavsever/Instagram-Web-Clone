@@ -3,7 +3,7 @@ import React from 'react'
 function Header({ user }) {
 
     return (
-        <header className='flex items-center py-4 pb-10 px-24 gap-x-24'>
+        <header className='flex items-center py-12 pb-10 px-36 gap-x-24'>
 
             <img src="Images/ProfilePhotos/noavatar.jpg" alt="profilePhoto"
                 className='w-[150px] h-[150px] rounded-full ' />
