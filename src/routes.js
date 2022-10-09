@@ -7,6 +7,7 @@ import Login from "./views/auth/Login"
 import Register from "./views/auth/Register"
 import AuthLayout from "./views/auth/"
 import PrivateRoute from "./components/PrivateRoute"
+import Logout from "./views/logout"
 
 export const routes = [{
 
@@ -18,7 +19,10 @@ export const routes = [{
                 index:true,
                 element: <Home />
             },
-
+            {
+                path:"logout",
+                element: <Logout />
+            },
             {
                 path: ":username",
                 element: <PorfileLayout />,
