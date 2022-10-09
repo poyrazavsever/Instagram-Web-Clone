@@ -1,8 +1,9 @@
 import React from 'react'
 import { LogoInstagram } from "../icons"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import SearchBox from "./Search"
 import { logout } from '../firebase'
+import { Home, Message, PlusSquare, Compass, Heart } from "../icons"
 
 
 function Header() {
@@ -17,12 +18,37 @@ function Header() {
 
                 <SearchBox />
 
-                <nav>
-                    <button onClick={logout}>Logout</button>
+                <nav className='flex items-center gap-x-6'>
+
+                    <NavLink to="/">
+                        <Home />
+                    </NavLink>
+
+                    <NavLink to="/">
+                        <Message />
+                    </NavLink>
+
+                    <NavLink to="/">
+                        <PlusSquare />
+                    </NavLink>
+
+                    <NavLink to="/">
+                        < Compass />
+                    </NavLink>
+
+                    <NavLink to="/">
+                        <Heart />
+                    </NavLink>
+
+                    <button onClick={logout}>
+                        <img src="Images/ProfilePhotos/noavatar.jpg" alt="ppPhoto" 
+                        className='w-6 h-6 rounded-full'/>
+                    </button>
+                    
                 </nav>
 
             </div>
-            
+
 
         </header>
     )
