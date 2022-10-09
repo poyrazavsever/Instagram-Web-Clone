@@ -20,7 +20,6 @@ import {
   userHandle
 } from "./utils";
 
-
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -29,7 +28,6 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
 };
-
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -42,8 +40,8 @@ onAuthStateChanged(auth, async user => {
 
     let data = {
       uid: user.uid,
-      full_name : user.full_name,
-      email : user.email,
+      full_name: user.full_name,
+      email: user.email,
       emailVerified: user.emailVerified,
       ...dbUsers.data()
     }
@@ -64,16 +62,27 @@ export const login = async (email, password) => {
   }
 }
 
+export const getUserInfo = async uname => {
+  const username = await getDoc(doc(db, "usernames", uname))
+  if (username.exists()) {
+    return (await getDoc(doc(db, "users", username.data().uid))).data()
+  } else {
+    toast.error("Kullanıcı bulunamadı!")
+    throw new Error("Kullanıcı bulunamadı!")
+  }
+}
+
 export const register = async ({
   email,
   password,
   full_name,
-  username
+  username,
 }) => {
   try {
 
 
-    const user = await getDoc(doc(db, "username", username))
+    const user = await getDoc(doc(db, "usernames", username))
+
     if (user.exists()) {
       toast.error(`${username} kullanıcı adı başkası tarafından kullanılıyor`)
     } else {
@@ -84,7 +93,7 @@ export const register = async ({
 
 
 
-        await setDoc(doc(db, "username", username), {
+        await setDoc(doc(db, "usernames", username), {
           uid: response.user.uid
         })
 
@@ -94,6 +103,11 @@ export const register = async ({
           followers: [],
           following: [],
           notifications: [],
+          website: '',
+          bio: '',
+          phoneNumber: '',
+          gender: '',
+          posts: 0
         })
 
       }
@@ -111,7 +125,6 @@ export const register = async ({
     toast.error(err.code)
   }
 }
-
 
 export const logout = async () => {
   try {
