@@ -7,6 +7,7 @@ import { Formik, Form } from "formik"
 import { RegisterSchema } from "../../validation/register-schema"
 import Button from '../../components/Button'
 import Separator from '../../components/Separator'
+import {Helmet} from "react-helmet"
 
 
 function Register() {
@@ -31,6 +32,10 @@ function Register() {
 	return (
 
 		<div className='w-[350px] flex flex-col gap-5'>
+
+			<Helmet>
+				<title>Register ✦ Instagram</title>
+			</Helmet>
 
 			<div className=' bg-white border px-[40px] pt-8 pb-6'>
 				<a href="/login" className='flex justify-center mb-4'>

@@ -8,6 +8,7 @@ import { LoginSchema } from "../../validation/login-schema"
 import Button from '../../components/Button'
 import Separator from '../../components/Separator'
 import { useSelector } from 'react-redux'
+import {Helmet} from "react-helmet"
 
 
 function Login() {
@@ -43,7 +44,7 @@ function Login() {
 		"https://www.instagram.com/static/images/homepage/screenshots/screenshot2.png/4d62acb667fb.png",
 		"https://www.instagram.com/static/images/homepage/screenshots/screenshot3.png/94edb770accf.png",
 		"https://www.instagram.com/static/images/homepage/screenshots/screenshot4.png/a4fd825e3d49.png"
-	] 
+	]
 
 
 	if (user) {
@@ -53,6 +54,10 @@ function Login() {
 
 	return (
 		<div className='h-full w-full flex flex-wrap overflow-auto gap-x-8 items-center justify-center'>
+
+			<Helmet>
+				<title>Login ✦ Instagram</title>
+			</Helmet>
 
 			<div className='w-[380px] hidden md:block bg-logo-pattern relative h-[581px] bg-[lenght:468.32px_634.15px] bg-[top_left_-46px]'>
 				<div className="w-[250px] h-[538px] absolute top-[27px] right-[18px]" ref={ref}>
@@ -108,7 +113,7 @@ function Login() {
 				<div className='bg-white border p-4 text-center text-sm'>
 					Don't have an account? <Link to='/auth/register' className='font-semibold text-btn'>Sign up</Link>
 				</div>
-			</div> 
+			</div>
 
 
 
