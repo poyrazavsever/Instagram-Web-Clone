@@ -114,8 +114,8 @@ export const register = async ({
 
       await updateProfile(auth.currentUser, {
         displayName: full_name,
-      })
-
+      }) 
+      localStorage.setItem("user", username)
       toast.success("Başarıyla kayıt yapıldı...")
       return response.user
 
@@ -129,6 +129,7 @@ export const register = async ({
 export const logout = async () => {
   try {
     await signOut(auth)
+    localStorage.clear()
   } catch (err) {
     toast.error(err.code)
   }

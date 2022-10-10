@@ -5,7 +5,7 @@ import classNames from "classnames"
 
 function SettingsLayout() {
     return (
-        <div className='bg-white border rounded mt-8 flex gap-x-12'>
+        <div className='bg-white mx-auto border rounded mt-8 flex gap-x-12'>
 
             <div className='w-72 border-r rounded'>
 

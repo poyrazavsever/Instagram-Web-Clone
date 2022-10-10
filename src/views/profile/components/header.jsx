@@ -5,7 +5,7 @@ function Header({ user }) {
     return (
         <header className='flex items-center py-12 pb-10 px-36 gap-x-24'>
 
-            <img src="Images/ProfilePhotos/noavatar.jpg" alt="profilePhoto"
+            <img src="Images/ProfilePhotos/noavatar.jpg" alt="editPhoto"
                 className='w-[150px] h-[150px] rounded-full ' />
 
             <div>
